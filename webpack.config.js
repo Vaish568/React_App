@@ -1,6 +1,5 @@
 const path = require("path");
 const webpack = require("webpack");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: "./src/index.js",
@@ -11,6 +10,7 @@ module.exports = {
     publicPath: "/",
   },
   target: "web",
+
   devServer: {
     port: "3000",
     static: ["./public"],
@@ -19,10 +19,9 @@ module.exports = {
     hot: true,
     liveReload: true,
   },
-  plugins: [new MiniCssExtractPlugin()],
 
   resolve: {
-    extensions: [".js", ".jsx", ".json"],
+    extensions: [".js", ".jsx", ".json", ".css"],
   },
   module: {
     rules: [
@@ -31,16 +30,27 @@ module.exports = {
         exclude: /node_modules/,
         use: "babel-loader",
       },
+      // {
+      //   test: /\.css$/,
+      //   use: [
+      //     "style-loader",
+
+      //     {
+      //       loader: "css-loader",
+      //       options: { importLoaders: 1, modules: true },
+      //     },
+      //   ],
+      // },
+      // {
+      //   test: /\.css$/,
+      //   use: ExtractTextPlugin.extract({
+      //     fallback: "style-loader",
+      //     use: "css-loader",
+      //   }),
+      // },
       {
         test: /\.css$/,
-        use: [
-          "style-loader",
-
-          {
-            loader: "css-loader",
-            options: { importLoaders: 1, modules: true },
-          },
-        ],
+        use: ["style-loader", "css-loader"],
       },
     ],
   },

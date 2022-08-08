@@ -18,7 +18,7 @@ import Learn, {
 export default function App() {
   return (
     <Router>
-      <Routes>
+      {/* <Routes>
         <Route index element={<Home />} />
         <Route path="/" element={<Home />} />
         <Route path="/myapps" element={<Navigate replace to="/learn" />} />
@@ -29,7 +29,7 @@ export default function App() {
           <Route path="bundles" element={<Bundles />} />
         </Route>
         <Route path="/dashboard" element={<Dashboard />} />
-      </Routes>
+      </Routes> */}
     </Router>
   );
 }
