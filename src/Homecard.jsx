@@ -5,9 +5,14 @@ import { addItemToCart, increment } from "./features/cart/cartSlice";
 
 export default function Homecard({ image, price, title, id, amt }) {
   const { amount, cartItem } = useSelector((state) => state.cart);
+  const { firstName } = useSelector((store) => store.user);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const addToCart = () => {
+    if (!firstName) {
+      navigate("/signup");
+      return;
+    }
     let item = {
       id: id,
       title: title,
