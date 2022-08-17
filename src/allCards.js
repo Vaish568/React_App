@@ -4,7 +4,7 @@ import Card from "./card";
 
 export default function AllCards() {
   const { cartItem, amount } = useSelector((state) => state.cart);
-  console.log("amount value is", amount);
+
   return (
     <div className="mt-5 d-flex flex-column justify-content-center">
       <p className="d-flex justify-content-center">

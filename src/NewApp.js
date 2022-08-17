@@ -12,11 +12,13 @@ import Form from "./component/Form";
 export default function NewApp() {
   const dispatch = useDispatch();
   const { cartItem, amount } = useSelector((state) => state.cart);
+  const { firstName } = useSelector((store) => store.user);
   const cart = useSelector((state) => state.cart);
   useEffect(() => {
     dispatch(calculateTotals());
-    localStorage.setItem("cart", JSON.stringify(cart));
-  }, [cartItem]);
+    // localStorage.setItem("cart", JSON.stringify(cart));
+    // localStorage.setItem("user", firstName);
+  }, [cartItem, firstName]);
 
   return (
     <main style={{ backgroundColor: "lightgrey", height: "100vh" }}>
